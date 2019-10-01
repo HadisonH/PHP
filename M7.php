@@ -42,4 +42,26 @@ function soma(float ...$n):int {
 echo soma(0.4, 1.1, 2.9, 3.3, 4.8);
 echo "<br>";
 
+function test($callback){
+	$callback();
+}
+
+test(function() {
+	echo "Entendi muito bem não";
+} );
+
+
+$a = function($b, $c) {
+	$a = $b + $c;
+	echo "$a";
+};
+
+echo "<br>";
+
+$a(5,5);
+
+echo "<br>";
+
+echo $a(5,9);
+
 ?>

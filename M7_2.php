@@ -47,7 +47,7 @@ function exibe($cargos) {
 
 		$html .= $cargo["cargo"];
 
-		if (isset($cargo["cargo"]) && count($cargo["sub"]) > 0) {
+		if (isset($cargo["sub"]) && count($cargo["sub"]) > 0) {
 			$html .= exibe($cargo["sub"]);
 		}
 
@@ -64,29 +64,5 @@ echo exibe($hier);
 echo "<pre>";
 var_dump($hier);
 echo "</pre>";
-
-
-
-function test($callback){
-	$callback();
-}
-
-test(function() {
-	echo "Entendi muito bem não";
-} );
-
-
-$a = function($b, $c) {
-	$a = $b + $c;
-	echo "$a";
-};
-
-echo "<br>";
-
-$a(5,5);
-
-echo "<br>";
-
-echo $a(5,9);
 
 ?>
