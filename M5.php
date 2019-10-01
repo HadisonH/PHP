@@ -49,4 +49,9 @@ echo "Nome: " . $caracteristicas[1]["Nome"] . "<br>" .
 	 "Idade: " . $caracteristicas[1]["Idade"] . "<br><br>";
 
 echo DIRECTORY_SEPARATOR;
+
+foreach ($caracteristicas[0] as $value) {
+	echo "$value <br>";
+}
+
 ?>
