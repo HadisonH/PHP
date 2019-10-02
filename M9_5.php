@@ -1,12 +1,15 @@
 <?php
 
 spl_autoload_register(function($nomeClasse) {
-	if (file_exists("Classe" . DIRECTORY_SEPARATOR . $nomeClasse . ".php") === true) {
-		require_once("Classe" . DIRECTORY_SEPARATOR . $nomeClasse . ".php");
+	$dirClass = "Classe";
+	$file = $dirClass . DIRECTORY_SEPARATOR . $nomeClasse . ".php";
+
+	if (file_exists($file) === true) {
+		require_once($file);
 	}
 });
 
-class DelRey extends Automovel {
+class DelRey extends \Automovel {
 	public function empurrar() {
 		echo "Empurrou!";
 	}
@@ -16,7 +19,7 @@ class DelRey extends Automovel {
 	}
 }
 
-$car = new Automovel();
+$car = new \Automovel();
 
 $car->acelerar(20);
 
