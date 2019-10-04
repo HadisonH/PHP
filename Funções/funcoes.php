@@ -1,6 +1,7 @@
 <?php
 
-require "Conta.php";
+require_once "../Classe/Poupanca.php";
+require_once "../Classe/Corrente.php";
 
 function detalhes($conta)
 {
@@ -36,12 +37,11 @@ function sacarPOU($conta, $valor)
 function simular($conta, $when)
 {
 
-	if ($conta->simular($when) == $final)
+	if ($conta->simular($when) == false)
 	{
 		$temp =  strtotime("+ $when month");
 
-		echo "Em " . date("d/m/Y", $temp) . " você terá R$ ".$final."<br><br>
-		Saldo atual : R$ ".$conta->getSaldo()."<br><br>";
+		echo "Em " . date("d/m/Y", $temp) . " você terá R$ ".$conta->sim."<br><br>";
 	}
 	else
 	{	
@@ -59,24 +59,25 @@ function detalhesCOR($conta)
 
 function sacarCOR($conta, $valor)
 {
-	if ($conta->sacar($valor) == 1)
-	{
-		echo "Saque de R$ ".$valor." realizado com sucesso apenas com o saldo<br><br>
-			  Saldo atual : R$ ".$conta->getSaldo()."<br>
-			  Total de crédito atual : R$ ".$conta->getCredito()."<br><br>";
-	}
-	else if ($conta->sacar($valor) == 2)
-	{
-		echo "Saque de R$ ".$valor." realizado com sucesso<br><br>
-			  Saldo atual : R$ ".$conta->getSaldo()."<br><br>
-			  Total de crédito atual : R$ ".$conta->getCredito()."<br><br>";
-	}
-	else
-	{
-		echo "Valor não permitido para saque..<br><br>
-			  Valor tentado : R$ ".$valor."<br><br>
-			  Saldo atual : R$ ".$conta->getSaldo()."<br><br>
-			  Total de crédito atual : R$ ".$conta->getCredito()."<br><br>";
+	switch ($conta->sacar($valor)) {
+		case 1:
+			echo "Saque de R$ ".$valor." realizado com sucesso apenas com o saldo<br><br>
+	 		  Saldo atual : R$ ".$conta->getSaldo()."<br>
+	 		  Total de crédito atual : R$ ".$conta->getCredito()."<br><br>";
+			break;
+		
+		case 2:
+			echo "Saque de R$ ".$valor." realizado com sucesso<br><br>
+	 		  Saldo atual : R$ ".$conta->getSaldo()."<br><br>
+	 		  Total de crédito atual : R$ ".$conta->getCredito()."<br><br>";
+			break;
+
+		case 3:
+			echo "Valor não permitido para saque..<br><br>
+	 	 	  Valor tentado : R$ ".$valor."<br><br>
+	 		  Saldo atual : R$ ".$conta->getSaldo()."<br><br>
+	 		  Total de crédito atual : R$ ".$conta->getCredito()."<br><br>";
+			break;
 	}
 }
 
