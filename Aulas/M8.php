@@ -1,6 +1,7 @@
 <?php
 
-echo date("D/M/Y H:i:s");
+$tempo = date("D/M/Y H:i:s");
+echo "$tempo";
 
 echo "<br><br>";
 
@@ -14,7 +15,7 @@ echo date("l, d/m/Y", $nsc);
 
 echo "<br><br>";
 
-$t =  strtotime("+ 1 week");
+$t =  strtotime("+ 1 month");
 echo date("l, d/m/Y", $t);
 
 echo "<br><br>";
@@ -38,5 +39,14 @@ echo "<br>";
 $dt->add($p);
 
 echo $dt->format("d/m/y");
+
+echo "<br><br><br><br>";
+
+echo date("d/m/y");
+echo "<br>";
+
+echo date("d/m/y", strtotime("+ 0 month"));
+
+
 
 ?>
