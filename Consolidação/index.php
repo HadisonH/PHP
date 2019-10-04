@@ -1,6 +1,6 @@
 <?php
 
-require "../Funções/funcoes.php";
+require_once "../Funções/Funcoes.php";
 
 $adison = new Poupanca(2145, 01015406, "Adison Rocha", 2);
 

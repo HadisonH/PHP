@@ -1,6 +1,6 @@
 <?php
 
-require_once "Conta.php";
+require_once "../Classe/Conta.php";
 
 class Corrente extends Conta
 {
