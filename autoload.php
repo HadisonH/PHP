@@ -2,9 +2,11 @@
 
 function __autoload($class)
 {
-	if (file_exists("../Classe/".$class.".php"))
+	$dir = "../Classe/".$class.".php";
+
+	if (file_exists($dir))
 	{
-		require_once "../Classe/".$class.".php";
+		require_once $dir;
 	}
 }
 
