@@ -1,6 +1,6 @@
 <?php
 
-include "Funções/Matematicas.php";
+include "../Funções/Matematicas.php";
 
 $ip = $_SERVER["REMOTE_ADDR"];
 $local = $_SERVER["SCRIPT_NAME"];

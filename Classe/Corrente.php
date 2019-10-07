@@ -1,14 +1,14 @@
 <?php
 
-require_once "../Classe/Conta.php";
+require_once "../autoload.php";
 
 class Corrente extends Conta
 {
 	public $credito;
 
-	public function __construct($agencia, $conta, String $titular, $saldo, $credito)
+	public function __construct($agencia, $conta,int $senha, String $titular, $saldo, $credito)
 	{
-		parent::__construct($agencia, $conta, $titular, $saldo);
+		parent::__construct($agencia, $conta, $senha, $titular, $saldo);
 		$this->setCredito($credito);
 	}
 

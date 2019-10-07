@@ -1,14 +1,14 @@
 <?php
 
-require_once "../Classe/Conta.php";
+require_once "../autoload.php";
 
 class Poupanca extends Conta
 {
 	public $dtAtual;
 
-	public function __construct($agencia, $conta, String $titular, $saldo)
+	public function __construct($agencia, $conta,int $senha, String $titular, $saldo)
 	{
-		parent::__construct($agencia, $conta, $titular, $saldo);
+		parent::__construct($agencia, $conta, $senha, $titular, $saldo);
 	}
 
 	public function simular(int $dtAtual)

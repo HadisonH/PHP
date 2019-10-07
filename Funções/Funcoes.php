@@ -1,7 +1,6 @@
 <?php
 
-require_once "../Classe/Poupanca.php";
-require_once "../Classe/Corrente.php";
+require_once "../autoload.php";
 
 function detalhes($conta)
 {

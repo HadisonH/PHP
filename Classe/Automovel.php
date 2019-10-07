@@ -20,7 +20,7 @@ class Automovel implements Veiculo {
 	}
 
 	public function poli () {
-		return "Óooo o polimorfismo aiii";
+		return "PrimeiroOOO";
 	}
 } // implements é o mesmo que extends mas para de interface
 

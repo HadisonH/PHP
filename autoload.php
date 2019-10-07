@@ -1,12 +1,11 @@
 <?php
 
-function load($namespace)
+function __autoload($class)
 {
-	$caminho = __DIR__."/".$namespace.".php";
-
-	return _once $caminho;
+	if (file_exists("../Classe/".$class.".php"))
+	{
+		require_once "../Classe/".$class.".php";
+	}
 }
-
-spl_autoload_register(__NAMESPACE__."\load");
 
 ?>
