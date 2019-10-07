@@ -81,7 +81,6 @@ abstract class Conta
 		$this->atualizarBanco();
 	}
 
-
 	public function sacar($valor)
 	{
 		if ($valor <= $this->getSaldo())
@@ -95,7 +94,7 @@ abstract class Conta
 		else
 		{
 			$this->atualizarBanco();
-			
+
 			return false;
 		}
 	}

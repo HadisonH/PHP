@@ -1,9 +1,8 @@
 <?php
 
 require_once "../Funções/Funcoes.php";
-require_once "../autoload.php";
 
-$adison = new Poupanca(2145, 01015406,2108, "Adison Rocha", 2);
+$adison = new Poupanca(2145, 01015406.8, 2108, "Adison Rocha", 2);
 
 detalhes($adison);
 echo "<br><br><br>";
@@ -22,7 +21,7 @@ echo "Saldo atual : R$ ".$adison->getSaldo()."<br><br><br><br><br>";
 
 //=====================================================================================================================\\
 
-$ramia = new Corrente(1234, 01014573.0,5174, "Ramia Rocha", 10000, 2000);
+$ramia = new Corrente(1234, 01014573.0, 5174, "Ramia Rocha", 10000, 2000);
 
 detalhesCOR($ramia);
 echo "<br>";
@@ -32,5 +31,9 @@ echo "<br>";
 
 sacarCOR($ramia, 17000);
 echo "<br><br>";
+
+//=====================================================================================================================\\
+
+
 
 ?>
