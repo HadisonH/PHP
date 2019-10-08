@@ -6,8 +6,12 @@ class Corrente extends Conta
 {
 	public $credito;
 
+	private $conn;
+
 	public function __construct($agencia, $conta,int $senha, String $titular, $saldo, $credito)
 	{
+		$this->conn = new PDO("mysql:dbname=PHP;host=localhost", "root", "Vivo941435994");
+
 		parent::__construct($agencia, $conta, $senha, $titular, $saldo);
 		$this->setCredito($credito);
 
@@ -22,9 +26,7 @@ class Corrente extends Conta
 		$senha = $this->getSenha();
 		$saldo = $this->getSaldo();
 
-		$conn = new PDO("mysql:dbname=PHP;host=localhost", "root", "Vivo941435994");
-
-		$stmt = $conn->prepare (
+		$stmt = $this->conn->prepare (
 			"INSERT INTO tbCONTA (
 				CONTA , AGENCIA, SENHA, TITULAR, SALDO, TIPO
 			) VALUES (

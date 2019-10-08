@@ -8,10 +8,14 @@ abstract class Conta
 	protected $senha;
 	protected $saldo;
 
+	private $conn;
+
 	public $sim;
 
 	public function __construct($agencia, $conta,int $senha, String $titular, $saldo)
 	{
+		$this->conn = new PDO("mysql:dbname=PHP;host=localhost", "root", "Vivo941435994");
+		
 		$this->agencia = $agencia;
 		$this->conta = $conta;		
 		$this->titular = $titular;
@@ -24,9 +28,7 @@ abstract class Conta
 
 	public function criarBanco()
 	{
-		$conn = new PDO("mysql:dbname=PHP;host=localhost", "root", "Vivo941435994");
-
-		$stmt = $conn->prepare(
+		$stmt = $this->conn->prepare(
 			"CREATE TABLE tbCONTA (
 				CONTA VARCHAR(11) PRIMARY KEY,
 				AGENCIA VARCHAR(100),
@@ -45,10 +47,9 @@ abstract class Conta
 		$conta = $this->conta;
 		$saldo = $this->getSaldo();
 
-		$conn = new PDO("mysql:dbname=PHP;host=localhost", "root", "Vivo941435994");
-
-		$stmt = $conn->prepare("UPDATE tbCONTA SET SALDO = '$saldo'
-								WHERE CONTA = '$conta'");
+		$stmt = $this->conn->prepare(
+			"UPDATE tbCONTA SET SALDO = '$saldo'
+			WHERE CONTA = '$conta'");
 
 		$stmt->execute();
 	}

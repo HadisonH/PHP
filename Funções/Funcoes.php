@@ -46,6 +46,8 @@ function simular($conta, $when)
 	{	
 		echo "Saldo atual : R$ ".$conta->getSaldo()."<br><br>";
 	}
+
+	$conta->simulando();
 }
 
 function detalhesCOR($conta)

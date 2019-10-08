@@ -15,7 +15,6 @@ echo "<br>";
 
 simular($adison, 12);
 echo "<br>";
-$adison->simular(0);
 
 echo "Saldo atual : R$ ".$adison->getSaldo()."<br><br><br><br><br>";
 
